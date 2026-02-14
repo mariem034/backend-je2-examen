@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CoachRepositories extends JpaRepository<Coach, Long> {
     
+
 }

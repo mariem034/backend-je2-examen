@@ -23,14 +23,15 @@ public class SubscriptionController {
     }
 
     //update a subscription
-    @PostMapping("/update")
-    public Subscription updateSubscription(@RequestBody Subscription subscription) {
+    @PutMapping("/update/{subscriptionId}")
+    public Subscription updateSubscription(@PathVariable Long subscriptionId, @RequestBody Subscription subscription) {
+        subscription.setId(subscriptionId);
         return subscriptionService.updateSubscription(subscription);
     }
 
     //delete a subscription
-    @PostMapping("/delete")
-    public void deleteSubscription(@RequestBody Long subscriptionId) {
+    @DeleteMapping("/delete/{subscriptionId}")
+    public void deleteSubscription(@PathVariable Long subscriptionId) {
         subscriptionService.deleteSubscription(subscriptionId);
     }
 

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 @RestController
@@ -32,15 +34,15 @@ private final MemberService memberService;
     }
 
     //update a member
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public Member updateMember(@PathVariable Long id, @RequestBody Member updatedMember) {
         return memberService.updateMember(id, updatedMember);
     }
 
     //delete a member
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteMember(@PathVariable Long id) {
         memberService.deleteMember(id);
     }
-    
+
 }
